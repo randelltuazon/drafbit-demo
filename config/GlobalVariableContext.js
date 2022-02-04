@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const DeviceVariables = {};
-const AppVariables = {};
+const AppVariables = { APP_ENV: 'int', CDN_URL: 'https://cdn-int.insead.edu' };
 const GlobalVariableContext = React.createContext();
 const GlobalVariableUpdater = React.createContext();
 
