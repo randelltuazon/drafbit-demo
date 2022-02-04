@@ -1,9 +1,13 @@
 import React from 'react';
+import * as GlobalVariables from '../config/GlobalVariableContext';
 import Images from '../config/Images';
 import { Button, ScreenContainer, withTheme } from '@draftbit/ui';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 const WelcomeScreen = props => {
+  const Constants = GlobalVariables.useValues();
+  const Variables = Constants;
+
   const { theme } = props;
   const { navigation } = props;
 
@@ -47,24 +51,32 @@ const WelcomeScreen = props => {
               }
             </Text>
 
-            <Button
-              onPress={() => {
-                try {
-                  navigation.navigate('FeedScreen');
-                } catch (err) {
-                  console.error(err);
-                }
-              }}
-              style={styles.Buttonb5}
-              type={'solid'}
-            >
-              {'Check Out Your App →'}
-            </Button>
-
             <Text style={[styles.Text_8A, { color: theme.colors.light }]}>
               {'You can safely delete this screen at any time.'}
             </Text>
+            <>
+              {!Constants['APP_ENV'] ? null : (
+                <Text style={{ color: theme.colors.strong }}>
+                  {'APP_ENV: '}
+                  {Constants['APP_ENV']}
+                </Text>
+              )}
+            </>
           </View>
+
+          <Button
+            onPress={() => {
+              try {
+                navigation.navigate('FeedScreen');
+              } catch (err) {
+                console.error(err);
+              }
+            }}
+            style={styles.Buttonb5}
+            type={'solid'}
+          >
+            {'Check Out Your App →'}
+          </Button>
         </View>
         <View pointerEvents={'auto'} />
       </ImageBackground>
@@ -106,9 +118,6 @@ const styles = StyleSheet.create({
     fontFamily: 'System',
     fontWeight: '400',
   },
-  Buttonb5: {
-    marginTop: 18,
-  },
   Text_8A: {
     textAlign: 'center',
     marginTop: 8,
@@ -124,6 +133,9 @@ const styles = StyleSheet.create({
     paddingBottom: 18,
     maxWidth: 400,
     opacity: 1,
+  },
+  Buttonb5: {
+    marginTop: 18,
   },
   Viewta: {
     flexGrow: 1,
