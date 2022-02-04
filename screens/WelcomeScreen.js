@@ -14,69 +14,65 @@ const WelcomeScreen = props => {
   return (
     <ScreenContainer hasSafeArea={false} scrollable={false}>
       <ImageBackground
-        style={styles.ImageBackground_4m}
+        style={styles.ImageBackgroundyw}
         source={Images.Space}
         resizeMode={'cover'}
       >
-        <View style={styles.ViewW2} pointerEvents={'auto'}>
+        <View style={styles.View_8j} pointerEvents={'auto'}>
           <View
-            style={[styles.Viewoj, { backgroundColor: theme.colors.strong }]}
+            style={[styles.ViewcG, { backgroundColor: theme.colors.strong }]}
             pointerEvents={'auto'}
           >
             <Image
-              style={styles.ImageVB}
+              style={styles.Imagecg}
               resizeMode={'cover'}
               source={Images.Logo}
             />
           </View>
         </View>
 
-        <View style={styles.Viewta} pointerEvents={'auto'}>
+        <View style={styles.ViewVf} pointerEvents={'auto'}>
           <View
             style={[
-              styles.ViewdB,
+              styles.Viewxm,
               {
                 backgroundColor: theme.colors.surface,
                 borderRadius: theme.roundness,
               },
             ]}
           >
-            <Text style={[styles.TextkM, { color: theme.colors.strong }]}>
+            <Text style={[styles.Texti7, { color: theme.colors.strong }]}>
               {'Enjoy the head start!'}
             </Text>
 
-            <Text style={[styles.TextMg, { color: theme.colors.medium }]}>
+            <Text style={[styles.TextOf, { color: theme.colors.medium }]}>
               {
                 'Use these screens to quickly iterate on your idea. To update a component, select an element on the canvas or in the component tree on the left, and make your changes to Styles, Configs, Data, or Actions on the right. '
               }
             </Text>
 
-            <Text style={[styles.Text_8A, { color: theme.colors.light }]}>
-              {'You can safely delete this screen at any time.'}
-            </Text>
+            <Button
+              onPress={() => {
+                try {
+                  navigation.navigate('FeedScreen');
+                } catch (err) {
+                  console.error(err);
+                }
+              }}
+              style={styles.ButtonmP}
+              type={'solid'}
+            >
+              {'Check Out Your App →'}
+            </Button>
             <>
               {!Constants['APP_ENV'] ? null : (
-                <Text style={{ color: theme.colors.strong }}>
+                <Text style={[styles.TextR8, { color: theme.colors.light }]}>
                   {'APP_ENV: '}
                   {Constants['APP_ENV']}
                 </Text>
               )}
             </>
           </View>
-
-          <Button
-            onPress={() => {
-              try {
-                navigation.navigate('FeedScreen');
-              } catch (err) {
-                console.error(err);
-              }
-            }}
-            style={styles.Buttonb5}
-            type={'solid'}
-          >
-            {'Check Out Your App →'}
-          </Button>
         </View>
         <View pointerEvents={'auto'} />
       </ImageBackground>
@@ -85,12 +81,12 @@ const WelcomeScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  ImageVB: {
+  Imagecg: {
     width: 96,
     height: 96,
     alignSelf: 'center',
   },
-  Viewoj: {
+  ViewcG: {
     paddingLeft: 18,
     paddingTop: 18,
     paddingRight: 18,
@@ -98,7 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     opacity: 0.75,
   },
-  ViewW2: {
+  View_8j: {
     flexGrow: 1,
     flexShrink: 0,
     maxHeight: '50%',
@@ -106,19 +102,22 @@ const styles = StyleSheet.create({
     marginLeft: 12,
     marginRight: 12,
   },
-  TextkM: {
+  Texti7: {
     fontFamily: 'System',
     fontWeight: '600',
     fontSize: 24,
     lineHeight: 30,
   },
-  TextMg: {
+  TextOf: {
     lineHeight: 21,
     fontSize: 15,
     fontFamily: 'System',
     fontWeight: '400',
   },
-  Text_8A: {
+  ButtonmP: {
+    marginTop: 18,
+  },
+  TextR8: {
     textAlign: 'center',
     marginTop: 8,
     fontFamily: 'System',
@@ -126,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
   },
-  ViewdB: {
+  Viewxm: {
     paddingTop: 18,
     paddingLeft: 18,
     paddingRight: 18,
@@ -134,16 +133,13 @@ const styles = StyleSheet.create({
     maxWidth: 400,
     opacity: 1,
   },
-  Buttonb5: {
-    marginTop: 18,
-  },
-  Viewta: {
+  ViewVf: {
     flexGrow: 1,
     flexShrink: 0,
     marginLeft: 12,
     marginRight: 12,
   },
-  ImageBackground_4m: {
+  ImageBackgroundyw: {
     width: '100%',
     height: '100%',
     flexGrow: 1,

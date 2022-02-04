@@ -23,7 +23,7 @@ const FeedScreen = props => {
       scrollable={false}
     >
       <View pointerEvents={'auto'} />
-      <View style={styles.Viewtq}>
+      <View style={styles.ViewJb}>
         <ExampleDataApi.FetchListOfProductsGET limit={20}>
           {({ loading, error, data, doFetch }) => {
             const fetchData = data;
@@ -45,7 +45,7 @@ const FeedScreen = props => {
                 renderItem={({ item }) => {
                   const listData = item;
                   return (
-                    <View style={styles.ViewbK}>
+                    <View style={styles.ViewgN}>
                       <Touchable
                         onPress={() => {
                           try {
@@ -60,18 +60,18 @@ const FeedScreen = props => {
                       >
                         <View
                           style={[
-                            styles.Viewcw,
+                            styles.ViewLp,
                             {
                               backgroundColor: theme.colors.surface,
                               borderColor: theme.colors.divider,
                             },
                           ]}
                         >
-                          <View style={styles.Viewf4}>
+                          <View style={styles.ViewIf}>
                             <Text
                               style={[
                                 theme.typography.custom30,
-                                styles.Texten,
+                                styles.Textsd,
                                 { color: theme.colors.primary },
                               ]}
                             >
@@ -91,7 +91,7 @@ const FeedScreen = props => {
 
                           <View>
                             <ImageBackground
-                              style={styles.ImageBackgroundU8}
+                              style={styles.ImageBackgroundEf}
                               resizeMode={'cover'}
                               source={{ uri: `${item && item['img_src']}` }}
                             />
@@ -113,31 +113,31 @@ const FeedScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  Texten: {
+  Textsd: {
     textTransform: 'uppercase',
     marginBottom: 2,
   },
-  Viewf4: {
+  ViewIf: {
     paddingTop: 12,
     paddingLeft: 12,
     paddingBottom: 12,
     paddingRight: 12,
   },
-  ImageBackgroundU8: {
+  ImageBackgroundEf: {
     width: '100%',
     height: 200,
   },
-  Viewcw: {
+  ViewLp: {
     borderTopWidth: 1,
     borderLeftWidth: 1,
     borderBottomWidth: 1,
     borderRightWidth: 1,
   },
-  ViewbK: {
+  ViewgN: {
     paddingTop: 12,
     left: 2,
   },
-  Viewtq: {
+  ViewJb: {
     paddingLeft: 16,
     paddingRight: 16,
   },

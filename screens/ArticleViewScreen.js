@@ -18,7 +18,7 @@ const ArticleViewScreen = props => {
   return (
     <ScreenContainer hasSafeArea={false} scrollable={true}>
       <View pointerEvents={'auto'} />
-      <View style={styles.ViewV3} pointerEvents={'auto'}>
+      <View style={styles.ViewbZ} pointerEvents={'auto'}>
         <ExampleDataApi.FetchGetArticleGET
           id={props.route?.params?.articleId ?? 2}
         >
@@ -39,11 +39,11 @@ const ArticleViewScreen = props => {
             return (
               <View>
                 <ImageBackground
-                  style={styles.ImageBackgroundi5}
+                  style={styles.ImageBackground_6P}
                   resizeMode={'cover'}
                   source={{ uri: `${data && data['img_src']}` }}
                 />
-                <View style={styles.ViewsG}>
+                <View style={styles.View_28}>
                   <Text
                     style={[
                       theme.typography.custom27,
@@ -56,7 +56,7 @@ const ArticleViewScreen = props => {
                   <Text
                     style={[
                       theme.typography.headline5,
-                      styles.TextWn,
+                      styles.TextGJ,
                       { color: theme.colors.strong },
                     ]}
                   >
@@ -76,7 +76,7 @@ const ArticleViewScreen = props => {
                   <Text
                     style={[
                       theme.typography.body1,
-                      styles.Text_8t,
+                      styles.Textti,
                       { color: theme.colors.medium },
                     ]}
                     numberOfLines={10}
@@ -92,7 +92,7 @@ const ArticleViewScreen = props => {
                         console.error(err);
                       }
                     }}
-                    style={styles.ButtonSC}
+                    style={styles.ButtonkY}
                     type={'outline'}
                   >
                     {'Read More →'}
@@ -109,26 +109,26 @@ const ArticleViewScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  ImageBackgroundi5: {
+  ImageBackground_6P: {
     width: '100%',
     height: 250,
   },
-  TextWn: {
+  TextGJ: {
     marginTop: 12,
   },
-  Text_8t: {
+  Textti: {
     marginTop: 12,
   },
-  ButtonSC: {
+  ButtonkY: {
     marginTop: 12,
   },
-  ViewsG: {
+  View_28: {
     paddingTop: 12,
     paddingLeft: 12,
     paddingRight: 12,
     paddingBottom: 12,
   },
-  ViewV3: {
+  ViewbZ: {
     flexGrow: 1,
     flexShrink: 0,
   },
