@@ -67,7 +67,7 @@ const WelcomeScreen = props => {
             <>
               {!Constants['APP_ENV'] ? null : (
                 <Text style={[styles.TextR8, { color: theme.colors.light }]}>
-                  {'APP_ENV: '}
+                  {'APP_ENVSSS: '}
                   {Constants['APP_ENV']}
                 </Text>
               )}
