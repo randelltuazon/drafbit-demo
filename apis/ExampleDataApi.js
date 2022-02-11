@@ -9,14 +9,14 @@ import useFetch from 'react-fetch-hook';
 import { useIsFocused } from '@react-navigation/native';
 import * as GlobalVariables from '../config/GlobalVariableContext';
 
-export const createArticlePOST = Constants =>
+export const createArticlePOST = (Constants, { authors, category, content }) =>
   fetch(`https://example-data.draftbit.com/articles`, {
     method: 'POST',
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      authors: 'value',
-      category: 'value',
-      content: 'value',
+      authors: authors,
+      category: category,
+      content: content,
     }),
   })
     .then(res => {
