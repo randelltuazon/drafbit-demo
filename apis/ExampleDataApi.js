@@ -9,6 +9,43 @@ import useFetch from 'react-fetch-hook';
 import { useIsFocused } from '@react-navigation/native';
 import * as GlobalVariables from '../config/GlobalVariableContext';
 
+export const createArticlePOST = Constants =>
+  fetch(`https://example-data.draftbit.com/articles`, {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      authors: 'value',
+      category: 'value',
+      content: 'value',
+    }),
+  })
+    .then(res => {
+      if (!res.ok) {
+        console.error('Fetch error: ' + res.status + ' ' + res.statusText);
+      }
+      return res;
+    })
+    .then(res => res.json());
+
+export const useCreateArticlePOST = initialArgs => {
+  const queryClient = useQueryClient();
+  const Constants = GlobalVariables.useValues();
+
+  return useMutation(
+    args => createArticlePOST(Constants, { ...initialArgs, ...args }),
+    {
+      onError: (err, variables, { previousValue }) => {
+        if (previousValue) {
+          return queryClient.setQueryData('articles', previousValue);
+        }
+      },
+      onSettled: () => {
+        queryClient.invalidateQueries('articles');
+      },
+    }
+  );
+};
+
 export const getArticleGET = (Constants, { id }) =>
   fetch(`https://example-data.draftbit.com/articles/${id || ''}`, {
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },

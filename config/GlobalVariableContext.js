@@ -3,7 +3,7 @@ import { View, ActivityIndicator } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const DeviceVariables = {};
+const DeviceVariables = { APP_ENV2: 'uat' };
 const AppVariables = { APP_ENV: 'int', CDN_URL: 'https://cdn-int.insead.edu' };
 const GlobalVariableContext = React.createContext();
 const GlobalVariableUpdater = React.createContext();

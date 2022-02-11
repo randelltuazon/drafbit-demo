@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import theme from './themes/DraftbitTheme.js';
+import LinkingConfiguration from './LinkingConfiguration.js';
 
 import ArticleViewScreen from './screens/ArticleViewScreen';
 import FeedScreen from './screens/FeedScreen';
@@ -19,23 +20,43 @@ function Placeholder() {
     <View
       style={{
         flex: 1,
-        backgroundColor: 'yellow',
+        backgroundColor: '#131A2A',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
+        padding: 36,
       }}
     >
-      <Text style={{ textAlign: 'center' }}>
-        Your navigator is missing screens! Add some from the navigators tab on
-        the left.
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 24,
+          fontWeight: 'bold',
+          marginBottom: 12,
+          color: '#FFF',
+        }}
+      >
+        Missing Screens
+      </Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 16,
+          color: '#FFF',
+          marginBottom: 8,
+        }}
+      >
+        Your app doesn't have any screens added to the Root Navigator.
+      </Text>
+      <Text style={{ textAlign: 'center', fontSize: 16, color: '#FFF' }}>
+        Click the + (plus) icon in the Navigator tab on the left side to add
+        some.
       </Text>
     </View>
   );
 }
-
 export default function RootAppNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={LinkingConfiguration}>
       <Stack.Navigator initialRouteName="WelcomeScreen">
         <Stack.Screen
           name="FeedScreen"

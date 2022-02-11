@@ -1,5 +1,6 @@
 import React from 'react';
 import * as ExampleDataApi from '../apis/ExampleDataApi.js';
+import * as GlobalVariables from '../config/GlobalVariableContext';
 import { Button, ScreenContainer, withTheme } from '@draftbit/ui';
 import { useIsFocused } from '@react-navigation/native';
 import * as Linking from 'expo-linking';
@@ -13,6 +14,9 @@ import {
 import { Fetch } from 'react-request';
 
 const ArticleViewScreen = props => {
+  const Constants = GlobalVariables.useValues();
+  const Variables = Constants;
+
   const { theme } = props;
 
   return (

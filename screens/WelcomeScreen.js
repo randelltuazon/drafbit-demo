@@ -1,6 +1,8 @@
 import React from 'react';
+import * as CustomCode from '../components.js';
 import * as GlobalVariables from '../config/GlobalVariableContext';
 import Images from '../config/Images';
+import * as Utils from '../utils';
 import { Button, ScreenContainer, withTheme } from '@draftbit/ui';
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
@@ -67,11 +69,17 @@ const WelcomeScreen = props => {
             <>
               {!Constants['APP_ENV'] ? null : (
                 <Text style={[styles.TextR8, { color: theme.colors.light }]}>
-                  {'APP_ENVSSS: '}
+                  {'APP_ENV: '}
                   {Constants['APP_ENV']}
                 </Text>
               )}
             </>
+            <Utils.CustomCodeErrorBoundary>
+              <CustomCode.HelloWorld />
+            </Utils.CustomCodeErrorBoundary>
+            <Utils.CustomCodeErrorBoundary>
+              <CustomCode.MyTextComponent />
+            </Utils.CustomCodeErrorBoundary>
           </View>
         </View>
         <View pointerEvents={'auto'} />

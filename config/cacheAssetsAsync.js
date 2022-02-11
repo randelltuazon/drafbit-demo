@@ -3,7 +3,6 @@ import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 
 import IMAGES from './Images.js';
-import FONTS from './Fonts.js';
 
 function cacheImages(images) {
   return images.map(image => {
@@ -21,7 +20,6 @@ function cacheFonts(fonts) {
 
 export default function cacheAssetsAsync() {
   const imageAssets = cacheImages(Object.values(IMAGES));
-  const fontAssets = Font.loadAsync(FONTS);
 
-  return Promise.all([...imageAssets, fontAssets]);
+  return Promise.all([...imageAssets]);
 }

@@ -5,8 +5,15 @@
  */
 
 import * as Linking from 'expo-linking';
+function renderLinkingPrefix() {
+  try {
+    return Linking.createURL('/');
+  } catch (e) {
+    return 'draftbit://';
+  }
+}
 
-const prefix = Linking.createURL('/');
+const prefix = renderLinkingPrefix();
 const linking = {
   prefixes: [prefix],
   config: {
